@@ -1,5 +1,8 @@
 
 
+from pkg_resources import NullProvider
+
+
 class Nodo: ##lista de mapas
 
     def __init__(self, n, m, celda, nombre) : ##creacion de nodo
@@ -46,6 +49,20 @@ class Lista:
 
     def TL(self): #tamaño de la lista
         return self.Tamaño
+
+
+    def Imprimir(self):
+
+        puntero = self.primero
+
+        while puntero != None:
+
+            print(puntero.nombre+ ', '+str(puntero.n) + ', '+str(puntero.m) + ', '+puntero.celda)
+            
+            puntero = puntero.Siguiente
+
+        print()
+
 
 
         

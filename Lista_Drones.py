@@ -1,17 +1,18 @@
 class NodoM: ## Lista de Unidades Militares
 
-    def __init__(self,posicionx, posiciony, poder) : ##creacion de nodo
+    def __init__(self,posicionx, posiciony, poder, mapa) : ##creacion de nodo
 
         ##datos del dron enemigo
         self.posicionx = posicionx
         self.posiciony = posiciony
         self.poder = poder
+        self.mapa = mapa
 
         self.Siguiente = None
 
     def __str__(self) : #volver una funcion en 
 
-        return (self.linea, self.posicionx, self.posiciony, self.poder)
+        return (self.linea, self.posicionx, self.posiciony, self.poder, self.mapa)
 
 class ListaM:
 
@@ -20,9 +21,9 @@ class ListaM:
         self.primero = None
         self.tamaño = 0
 
-    def agregarM(self, posicionx, posiciony, poder): ## linea  y nombre del dron 
+    def agregarM(self, posicionx, posiciony, poder, mapa): ## linea  y nombre del dron 
 
-        NuevoNodo = NodoM( posicionx, posiciony, poder)
+        NuevoNodo = NodoM( posicionx, posiciony, poder, mapa)
 
         if self.tamaño == 0:
 
@@ -44,6 +45,19 @@ class ListaM:
 
     def TL(self): #tamaño de la lista
         return self.Tamaño
+
+
+    def Imprimir(self):
+
+        puntero = self.primero
+
+        while puntero != None:
+
+         print(str(puntero.posicionx)+', '+str(puntero.posiciony)+', '+str(puntero.poder)+puntero.mapa)
+
+         puntero = puntero.Siguiente
+
+        print()
 
 
 
@@ -92,6 +106,18 @@ class ListaR:
     def TL(self): #tamaño de la lista
         return self.Tamaño
 
+    def Imprimir(self):
+
+        puntero = self.primero
+
+        while puntero != None:
+
+         print(puntero.nombre)
+
+         puntero = puntero.Siguiente
+
+        print()
+
 
 class NodoP: ## Lista de Pelea
 
@@ -138,4 +164,16 @@ class ListaP:
 
     def TL(self): #tamaño de la lista
         return self.Tamaño
+
+    def Imprimir(self):
+
+        puntero = self.primero
+
+        while puntero != None:
+
+         print(puntero.nombre+', '+str(puntero.poder))
+
+         puntero = puntero.Siguiente
+
+        print()
 

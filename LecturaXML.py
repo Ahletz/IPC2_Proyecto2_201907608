@@ -103,17 +103,17 @@ class Manejo :
 
                                     continue
 
-                    for a in range(len(Militares)):   
+                        for a in range(len(Militares)):   
 
-                        fila_unidadM = Militares[a].attributes['fila'].value #fila unidad militar
+                            fila_unidadM = Militares[a].attributes['fila'].value #fila unidad militar
 
-                        columna_unidadM = Militares[a].attributes['columna'].value #columna unidad militar
+                            columna_unidadM = Militares[a].attributes['columna'].value #columna unidad militar
 
-                        poder_unidadM = Militares[a].firstChild.data ##poder de unidad militar 
+                            poder_unidadM = Militares[a].firstChild.data ##poder de unidad militar 
 
-                        ##agregar a lista de drones
+                            ##agregar a lista de drones
 
-                        DronesM.agregarM(fila_unidadM, columna_unidadM, poder_unidadM) #agregar unidades militares
+                            DronesM.agregarM(fila_unidadM, columna_unidadM, poder_unidadM,name) #agregar unidades militares
 
 
             ##drones aliados 
@@ -143,6 +143,10 @@ class Manejo :
 
                             ##agregar dron de rescate
                             DronesR.agregarR(rnombre)
+
+        DronesM.Imprimir()
+        DronesP.Imprimir()
+        DronesR.Imprimir()
 
     
                        
