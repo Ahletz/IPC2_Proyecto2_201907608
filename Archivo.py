@@ -8,6 +8,7 @@ class Carga:
     def AbrirArchivo(self):
         archivo = filedialog.askopenfilename(title="Abrir",initialdir="C:/")
         self.direccion= archivo
+        print(archivo)
 
         return self.direccion
         

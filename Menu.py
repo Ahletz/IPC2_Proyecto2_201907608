@@ -1,4 +1,5 @@
-from Archivo import *
+
+from LecturaXML import * ##manejas los datos xml
 
 class Menus:
 
@@ -30,7 +31,8 @@ class Menus:
 
         salir = False #ciclo para finalizar tarea
 
-        llamado = Carga() ##lamado metodo de carga de archivos
+
+        Datos = Manejo()
         
         while salir == False:
 
@@ -40,13 +42,15 @@ class Menus:
 
             if seleccion == 1: ##CARGA DE DOCUMENTO XML
 
-                llamado.AbrirVentana()
+                Datos.Datos() ##manejo de los datos xml
 
             elif seleccion ==2: ## MISIONES
 
                 self.Secundario() ###  SELECCION DEL TIPO DE MISION
 
+                
                 Tmision = int(input())
+
 
             elif seleccion ==3: ##CRECION DE GRAPHVIZ
 
