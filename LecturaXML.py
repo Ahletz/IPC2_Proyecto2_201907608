@@ -19,15 +19,15 @@ class Manejo :
 
         llamado.AbrirVentana()
 
-        direccion = llamado.direccion #obtencion de direccion de archivo xml 
+        self.direccion = llamado.direccion #obtencion de direccion de archivo xml 
 
-        if direccion == '':
+        if self.direccion == '':
 
             print('NO SE HA CARGADO NINGUN ARCHIVO XML') #en caso de no haber cargado un archivo 
 
         else:
 
-            doc = minidom.parse(direccion)
+            doc = minidom.parse(self.direccion)
             
             ##obtener los datos del piso
 
@@ -144,10 +144,127 @@ class Manejo :
                             ##agregar dron de rescate
                             DronesR.agregarR(rnombre)
 
-        DronesM.Imprimir()
-        DronesP.Imprimir()
+    def Ver_Mapas(self): ##Mostrar los nombres de los mapas de las ciudades
+
+        
+        doc = minidom.parse(self.direccion)
+
+        Ciudades = doc.getElementsByTagName("listaCiudades")
+
+        for i in range(len(Ciudades)):
+
+            ciudad = Ciudades[i].getElementsByTagName("ciudad")
+
+            indice = 1 #indice que muestra en las opciones de los mapas
+
+            for j in range(len(ciudad)):
+
+                Uciudad = ciudad[j].getElementsByTagName("nombre")
+
+                
+                for k in range(len(Uciudad)):
+
+                    name = Uciudad[k].firstChild.data
+                    print(str(indice)+' '+name)
+
+                    indice+=1
+
+        print('')
+
+    def Seleccion_Mapa(self, seleccion):
+
+        doc = minidom.parse(self.direccion)
+
+        Ciudades = doc.getElementsByTagName("listaCiudades")
+
+        nombre_ciudad =''
+
+        for i in range(len(Ciudades)):
+
+            ciudad = Ciudades[i].getElementsByTagName("ciudad")
+
+            if seleccion <= len(ciudad) and seleccion > 0:
+
+                for j in range(seleccion): #recorre hasta la ciudad seleccionada
+
+                    Uciudad = ciudad[j].getElementsByTagName("nombre")
+
+                    for k in range(len(Uciudad)):
+
+                        nombre_ciudad = Uciudad[k].firstChild.data
+
+            else: 
+
+                print('No selecciono una ciudad valida')
+
+                nombre_ciudad = 'No Definida'
+                    
+
+        
+        print('Ciudad seleccionada: '+nombre_ciudad)
+        print('')
+                    
+        return nombre_ciudad
+
+    def Unidad_Civil(self,ciudad): # impresion de las unidades civiles
+
+        listas.Imprimir_Civiles(ciudad)
+
+    def Seleccion_Civil(self, numero, ciudad, posicion): #seleccion de la unidad civil 
+
+       name =  listas.Seleccion_Civil(numero,ciudad,posicion)
+
+       return name
+
+    
+
+    def Unidad_Recurso(self, ciudad): #imprimir los recursos de la ciudad
+
+        listas.Imprimir_Recursos(ciudad)
+
+    
+    def Seleccion_Recursos(self, numero, ciudad, posicion):
+
+       name =  listas.Seleccion_Recurso(numero,ciudad,posicion)
+
+       return name
+
+
+
+
+
+    def Impresion_DronesRescate(self,): #impresion de dron de rescate
+
         DronesR.Imprimir()
 
+
+    def Seleccion_Dron_Rescate(self,numero): #seleccion de dron de rescate para civiles
+
+       name = DronesR.seleccion(numero)
+
+       return name
+
+
+
+
+    def Impresion_DronesRecolectores(self): #impresion de dron recolector de recursos 
+
+        DronesP.Imprimir()
+
+    def Seleccion_Dron_Atk(self, numero, elemento): #seleccion del dron de atk para la mision de recoleccion
+
+       name =  DronesP.seleccion(numero, elemento)
+
+       return name
+
+    
+
+
+    
+
+
+
+    
     
                        
 

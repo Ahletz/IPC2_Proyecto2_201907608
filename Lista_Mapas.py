@@ -63,6 +63,99 @@ class Lista:
 
         print()
 
+    def Imprimir_Civiles(self, ciudad):
+
+        puntero = self.primero
+
+        indice = 1
+
+        while puntero != None:
+
+            if puntero.celda == 'Unidad Civil'and puntero.nombre == ciudad:
+
+                print(str(indice)+'. Posicion: '+' - Linea: '+str(puntero.n)+ ' - Columna: '+ str(puntero.m) +' - Estado: '+ puntero.celda)
+                indice +=1
+            
+            puntero = puntero.Siguiente
+
+        print()
+
+    def Seleccion_Civil(self, numero, ciudad, posicion): ## numero = No de civil, ciudad = ciudad pertenece, Poscion = X o Y 
+
+        contador = 0
+        puntero = self.primero
+
+        while puntero != None:
+
+            if puntero.celda == 'Unidad Civil' and puntero.nombre == ciudad:
+
+                contador +=1
+
+            if contador == numero:
+
+                if posicion == 1:
+
+                    print('Posicion en x de la unidad civil: '+str(puntero.m))
+
+                    return puntero.m #retorna la columna
+
+                elif posicion == 2:
+
+                    print('Posicion en y de la unidad civil: '+str(puntero.n))
+
+                    return puntero.n ##retorna la fila
+            
+            puntero = puntero.Siguiente
+        print()
+
+    
+    def Imprimir_Recursos(self,ciudad):
+
+        puntero = self.primero
+
+        indice = 1
+
+        while puntero != None:
+
+            if puntero.celda == 'Recurso'and puntero.nombre == ciudad:
+
+                print(str(indice)+'. Posicion: '+' - Linea: '+str(puntero.n)+ ' - Columna: '+ str(puntero.m) +' - Estado: '+ puntero.celda)
+                indice +=1
+            
+            puntero = puntero.Siguiente
+
+        print()
+
+    def Seleccion_Recurso(self, numero, ciudad, posicion): #numero = No del recurso, Ciudad = ciudad del recurso, posicion = X o Y
+
+        contador = 0
+        puntero = self.primero
+
+        while puntero != None:
+
+            if puntero.celda == 'Recurso' and puntero.nombre == ciudad:
+
+                contador +=1
+
+            if contador == numero:
+
+                if posicion == 1:
+
+                    print('Posicion en x del Recurso: '+str(puntero.m))
+
+                    return puntero.m #retorna la columna
+
+                elif posicion == 2:
+
+                    print('Posicion en y del Recurso: '+str(puntero.n))
+
+                    return puntero.n ##retorna la fila
+            
+            puntero = puntero.Siguiente
+        print()
+                
+
+
 
 
         

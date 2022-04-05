@@ -50,6 +50,7 @@ class ListaM:
     def Imprimir(self):
 
         puntero = self.primero
+        
 
         while puntero != None:
 
@@ -110,13 +111,37 @@ class ListaR:
 
         puntero = self.primero
 
+        contador = 1
+
         while puntero != None:
 
-         print(puntero.nombre)
+         print(str(contador)+'. '+puntero.nombre)
+
+         contador += 1
 
          puntero = puntero.Siguiente
 
         print()
+
+    def seleccion(self, numero):
+
+        puntero = self.primero
+
+        contador = 1
+
+        while puntero != None:
+
+            if contador == numero:
+
+                return puntero.nombre #retorna el nombre del dron seleccionado
+
+            contador +=1
+            puntero = puntero.Siguiente
+
+        print('Unidad Seleccionada! ')
+        print()
+
+
 
 
 class NodoP: ## Lista de Pelea
@@ -169,11 +194,36 @@ class ListaP:
 
         puntero = self.primero
 
+        contador = 1
+
         while puntero != None:
 
-         print(puntero.nombre+', '+str(puntero.poder))
+         print(str(contador)+'. '+puntero.nombre+', '+str(puntero.poder))
+
+         contador += 1
 
          puntero = puntero.Siguiente
 
         print()
+
+    def seleccion(self, numero, elemento):
+
+        puntero = self.primero
+
+        contador = 1
+
+        while puntero != None:
+
+            if contador == numero:
+
+                if elemento == 1:
+
+                    return puntero.nombre #retorna el nombre del dron seleccionado
+
+                elif elemento == 2:
+
+                    return puntero.poder #retorna atk del dron 
+
+            contador +=1
+            puntero = puntero.Siguiente
 
