@@ -43,6 +43,12 @@ class Menus:
 
         print('|| Seleccione el dron que realizara la mision: ')
 
+    def Punto_Entrada(self):
+
+        print('|| Seleccione el punto de entrada: ')
+
+
+
     def Interaccion(self): ##selecciones usuario
 
         salir = False #ciclo para finalizar tarea
@@ -115,9 +121,25 @@ class Menus:
 
                         print()
 
+
+                        self.Punto_Entrada() #mensaje
+
+                        ent = Datos.Entrada(ciudad) #impresion de las entradas
+
+                        No_entrada = int(input()) #dato de la entrada
+
+                        Entradax = Datos.Seleccion_Entrada(No_entrada,ciudad,1) #entrada en x
+                        Entraday = Datos.Seleccion_Entrada(No_entrada,ciudad,2) #entrada en y
+
+                        print()
+
+
                         print('|| PROCESO DE SELECCION TERMINADO. COMIENZO DE MISION!')
 
                         print()
+
+
+                        Datos.Mision(DronR,civilx, civily, Entradax,Entraday)
 
 
 
@@ -164,6 +186,8 @@ class Menus:
                         print('Dron seleccionado para cumplir la mision: '+Name_Dron)
 
                         print()
+
+
 
                         print('|| PROCESO DE SELECCION TERMINADO. COMIENZO DE MISION!')
 

@@ -73,31 +73,31 @@ class Manejo :
 
                                     inside = 'Intransitable'
 
-                                    listas.agregarL(N_Fila, m, inside, name) ##agregar a lista de mapas
+                                    listas.agregarL(m, N_Fila, inside, name) ##agregar a lista de mapas
 
                                 elif fila[m] == ' ':
 
                                     inside = 'Transitable'
 
-                                    listas.agregarL(N_Fila, m, inside, name) ##agregar a lista de mapas
+                                    listas.agregarL(m, N_Fila, inside, name) ##agregar a lista de mapas
 
                                 elif fila[m] == 'E':
 
                                     inside = 'Entrada'
 
-                                    listas.agregarL(N_Fila, m, inside, name) ##agregar a lista de mapas
+                                    listas.agregarL(m, N_Fila, inside, name) ##agregar a lista de mapas
 
                                 elif fila[m] == 'C':
 
                                     inside = 'Unidad Civil'
 
-                                    listas.agregarL(N_Fila, m, inside, name) ##agregar a lista de mapas
+                                    listas.agregarL(m, N_Fila, inside, name) ##agregar a lista de mapas
 
                                 elif fila[m] == 'R':
 
                                     inside = 'Recurso'
 
-                                    listas.agregarL(N_Fila, m, inside, name) ##agregar a lista de mapas
+                                    listas.agregarL(m, N_Fila, inside, name) ##agregar a lista de mapas
 
                                 else: 
 
@@ -216,7 +216,18 @@ class Manejo :
 
        return name
 
-    
+
+    def Entrada(self,ciudad): # impresion de las entradas
+
+        listas.Imprimir_Entradas(ciudad)
+
+    def Seleccion_Entrada(self, numero, ciudad, posicion): #seleccion de la entrada 
+
+       name =  listas.Seleccion_Entrada(numero,ciudad,posicion)
+
+       return name
+
+
 
     def Unidad_Recurso(self, ciudad): #imprimir los recursos de la ciudad
 
@@ -256,6 +267,14 @@ class Manejo :
        name =  DronesP.seleccion(numero, elemento)
 
        return name
+
+
+    def Mision (self, tipo, Dx, Dy, posx, posy):
+
+        listas.Mision_Rescate(tipo, Dx, Dy, posx, posy)
+
+
+
 
     
 
